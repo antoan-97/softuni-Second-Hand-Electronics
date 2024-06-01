@@ -6,6 +6,8 @@ exports.getAll = () => Electronic.find().populate('owner');
 
 exports.getOne = (electronicsId) => Electronic.findById(electronicsId).populate('owner');
 
+exports.edit = (electronicId,electronicData) => Electronic.findByIdAndUpdate(electronicId,electronicData, { runValidators: true, new: true });
+
 exports.buy = async (electronicId, userId) => {
     const electronic = await Electronic.findById(electronicId);
 

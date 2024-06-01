@@ -54,5 +54,16 @@ router.get('/:electronicId/buy', async (req, res) => {
     }
 });
 
+router.get('/:electronicId/edit', async (req, res) => {
+    const electronicId = req.params.electronicId;
+
+    try {
+        const electronic = await electronicManager.getOne(electronicId).lean();
+        res.render('electronics/edit', { electronic });
+    } catch (err) {
+        res.render('404', { error: getErrorMessage(err) });
+    }
+})
+
 
 module.exports = router;

@@ -8,6 +8,9 @@ const electronicController = require('./controllers/electronicController');
 router.use(homeController);
 router.use('/users',userController);
 router.use('/electronics',electronicController);
+router.get('*', (req,res) =>{
+    res.redirect('/404')
+});
 
 
 module.exports = router

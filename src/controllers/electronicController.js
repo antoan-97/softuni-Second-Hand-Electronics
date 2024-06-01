@@ -76,7 +76,7 @@ router.post('/:electronicId/edit', isAuth, async (req, res) => {
         await electronicManager.edit(electronicId, electronicData);
         res.redirect(`/electronics/${electronicId}/details`)
     } catch (err) {
-        res.render('404', { electronic: { ...electronicData, _id: electronicId }, error: getErrorMessage(err) });
+        res.render('electronics/edit', { electronic: { ...electronicData, _id: electronicId }, error: getErrorMessage(err) });
     }
 });
 
@@ -90,7 +90,27 @@ router.get('/:electronicId/delete', isAuth, async (req, res) => {
     } catch (err) {
         res.render('404', { error: getErrorMessage(err) });
     }
-})
+});
+
+router.get('/search', async (req, res) => {
+    const { name, type } = req.query;
+
+    let query = {};
+    if (name) {
+        query.name = new RegExp(`^${name}$`, 'i'); // Case-insensitive full match
+    }
+
+    if (type) {
+        query.type = new RegExp(`^${type}$`, 'i'); // Case-insensitive full match
+    }
+
+    try {
+        const results = await electronicManager.search(query);
+        res.render('partials/search', { results }); // Render the 'search.hbs' template
+    } catch (err) {
+        res.render('404', { error: getErrorMessage(err) });
+    }
+});
 
 
 module.exports = router;

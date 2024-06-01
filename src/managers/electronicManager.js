@@ -8,6 +8,8 @@ exports.getOne = (electronicsId) => Electronic.findById(electronicsId).populate(
 
 exports.edit = (electronicId,electronicData) => Electronic.findByIdAndUpdate(electronicId,electronicData, { runValidators: true, new: true });
 
+exports.delete = (electronicId) => Electronic.findByIdAndDelete(electronicId);
+
 exports.buy = async (electronicId, userId) => {
     const electronic = await Electronic.findById(electronicId);
 

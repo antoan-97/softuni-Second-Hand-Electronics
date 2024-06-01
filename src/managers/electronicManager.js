@@ -10,6 +10,10 @@ exports.edit = (electronicId,electronicData) => Electronic.findByIdAndUpdate(ele
 
 exports.delete = (electronicId) => Electronic.findByIdAndDelete(electronicId);
 
+exports.search = (query) => {
+    return Electronic.find(query).lean();
+};
+
 exports.buy = async (electronicId, userId) => {
     const electronic = await Electronic.findById(electronicId);
 

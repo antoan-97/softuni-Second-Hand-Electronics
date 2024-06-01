@@ -74,7 +74,19 @@ router.post('/:electronicId/edit', async (req, res) => {
         await electronicManager.edit(electronicId, electronicData);
         res.redirect(`/electronics/${electronicId}/details`)
     } catch (err) {
-        res.render('404', { electronic: { ...electronicData, _id: electronicId },  error: getErrorMessage(err) });
+        res.render('404', { electronic: { ...electronicData, _id: electronicId }, error: getErrorMessage(err) });
+    }
+});
+
+
+router.get('/:electronicId/delete', async (req, res) => {
+    const electronicId = req.params.electronicId;
+
+    try {
+        await electronicManager.delete(electronicId);
+        res.redirect('/electronics')
+    } catch (err) {
+        res.render('404', { error: getErrorMessage(err) });
     }
 })
 

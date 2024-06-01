@@ -1,11 +1,11 @@
-.loginPage {
+.registerPage {
   text-align: center;
   margin-top: 5px;
   position: relative;
   padding-bottom: 6px;
 }
 
-#loginForm {
+#registerForm {
   padding-top: 1%;
   display: inline-block;
   margin-top: 5%;
@@ -15,23 +15,24 @@
   border-radius: 20px;
 }
 
-#loginForm label {
+#registerForm label {
   margin-top: 20px;
   margin-bottom: 20px;
   color: white;
   font-weight: bold;
+  
 }
 
-#loginForm input {
+#registerForm input {
   background: white;
   border: 1px solid black;
   border-radius: 10px;
   font-size: 16px;
 }
 
-#loginForm input[type="submit"] {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 40%;
-  font-size: 20px;
+#registerForm input[type="submit"] {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 40%;
+    font-size: 20px;
 }

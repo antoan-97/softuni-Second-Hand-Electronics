@@ -1,120 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Starts Head Section -->
 
 <head>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="/static/images/free-30-instagram-stories-icons23_122570.png">
-    <title>Petstagram</title>
+    <meta charset="UTF-8">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-
-<!-- Starts Body Section -->
 
 <body>
 
-    <!-- Starts Header Section with Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <!-- Link to Home Page -->
-                    <a href="#">
-                        <img width="50px" src="/static/images/free-30-instagram-stories-icons23_122570.png" alt="img1">
-                    </a>
+    <div id="container">
 
-                    <!-- Link to Home Page -->
-                    <a class="home" href="#">
-                        <i>Petstagram</i>
-                    </a>
-                </div>
+        <nav>
+            <ul>
+                <!--For all users-->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Catalog</a></li>
+                <!--For loggin users-->
+                <li><a href="#">Create Offer</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Logout</a></li>
+                <!--For guest user-->
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Register</a></li>
 
-                <div class="nav-links">
-                    <ul class="nav-group">
-                        <li class="nav-item">
-                            <!-- Link to Catalog Page -->
-                            <a href="#">
-                                <i>Catalog</i>
-                            </a>
-                        </li>
+            </ul>
 
-                        <!--For Guest User-->
-                        <li class="nav-item">
-                            <!-- Link to Login Page -->
-                            <a href="#">
-                                <i>Login</i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- Link to Register Page -->
-                            <a href="#">
-                                <i>Register</i>
-                            </a>
-                        </li>
-
-                        <!--For login users-->
-                        <li class="nav-item">
-                            <!-- Link to Add Photo Page -->
-                            <a href="#">
-                                <i>Add Photo</i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <!-- Link to Profile Page -->
-                            <a href="#">
-                                <i>Profile</i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <!-- Link to Logout Page -->
-                            <a href="#">
-                                <i>Logout</i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </nav>
-    </header>
 
-    <!-- Starts Main Section -->
-    <main>
-        <!-- Start Add Photo Section -->
-        <div class="createPage">
-            <h2>Add photo</h2>
-            <!-- Start Add Photo Form -->
-            <form action="">
-                <p>
-                    <input type="text" name="" placeholder="Name">
-                </p>
+        <section id="createPage">
+            <form id='createForm' action="#" method="">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="" placeholder="Name...">
 
-                <p>
-                    <input type="number" name="" placeholder="Age">
-                </p>
+                <label for="type">Type:</label>
+                <input type="text" id="type" name="" placeholder="Type...">
 
-                <p>
-                    <textarea type="text" name="" placeholder="Description"></textarea>
-                </p>
+                <label for="production">Year of Production:</label>
+                <input type="number" id="production" name="" placeholder="Year of Production...">
 
-                <p>
-                    <input type="text" name="" placeholder="Location">
-                </p>
+                <label for="exploitation">Years of Exploitation:</label>
+                <input type="number" id="exploitation" name="" placeholder="Year of Exploitation...">
 
-                <p>
-                    <input type="text" name="" placeholder="Link to image">
-                </p>
-                <!-- Add Photo Button -->
-                <button class="add-btn" type="submit">Add Photo</button>
+                <label for="damages">Damages:</label>
+                <input type="text" id="damages" name="" placeholder="Damages...">
+
+                <label for="image">Image:</label>
+                <input type="text" id="image" name="" placeholder="Image...">
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="" placeholder="Price...">
+
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="" placeholder="Description...">                
+
+                <input type="submit" class="create" value="Create Offer">
             </form>
-        </div>
-    </main>
+        </section>
 
-    <!-- Start Footer Section -->
-    <div class="footer">
-        <span class="footer-section">
-            © 2023 SoftUni Back-End Exam
-        </span>
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
     </div>
 
 </body>

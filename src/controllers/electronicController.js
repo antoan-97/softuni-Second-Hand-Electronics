@@ -4,6 +4,11 @@ const { getErrorMessage } = require('../utils/errorHelper');
 
 
 
+router.get('/', async (req,res) =>{
+    const electronics = await electronicManager.getAll().lean();
+    res.render('electronics', { electronics })
+})
+
 router.get('/create', (req, res) => {
     res.render('electronics/create');
 });

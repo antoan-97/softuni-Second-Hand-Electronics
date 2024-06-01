@@ -1,0 +1,29 @@
+<section class="search">
+    <h1>Search</h1>
+
+    <form class="search-form" method="GET">
+        <input type="text" class="search-name" name="name" placeholder="Search Name...">
+        <input type="text" class="search-type" name="type" placeholder="Search Type...">
+        <button type="submit" class="btn-search">Search</button>
+    </form>
+    {{#if results.length}}
+    <!--If there are matches after search-->
+    {{#each results}}
+    <div class="search-result">
+        <div class="search-list">
+            <a href="/electronics" class="added-electronics-in-market">
+                <img src="{{this.image}}" class="picture-added-electronics">
+                <h3>{{this.name}}</h3>
+                <span>Price: ${{this.price}}</span>
+            </a>
+        </div>
+
+    </div>
+    {{/each}}
+    {{else}}
+    <!--If there are no matches-->
+    <div class="no-match">
+        <p>No match was found!</p>
+    </div>
+    {{/if}}
+</section>

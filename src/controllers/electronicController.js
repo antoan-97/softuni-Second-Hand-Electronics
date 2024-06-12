@@ -2,7 +2,7 @@ const router = require('express').Router();
 const electronicManager = require('../managers/electronicManager');
 
 const { getErrorMessage } = require('../utils/errorHelper');
-const { isAuth } = require('../middlewares/authMiddleware');
+const { isAuth, isOwner } = require('../middlewares/authMiddleware');
 
 
 
@@ -56,7 +56,7 @@ router.get('/:electronicId/buy', isAuth, async (req, res) => {
     }
 });
 
-router.get('/:electronicId/edit', isAuth, async (req, res) => {
+router.get('/:electronicId/edit', isAuth, isOwner, async (req, res) => {
     const electronicId = req.params.electronicId;
 
     try {
@@ -68,7 +68,7 @@ router.get('/:electronicId/edit', isAuth, async (req, res) => {
 });
 
 
-router.post('/:electronicId/edit', isAuth, async (req, res) => {
+router.post('/:electronicId/edit', isAuth, isOwner, async (req, res) => {
     const electronicId = req.params.electronicId;
     const electronicData = req.body;
 
@@ -81,7 +81,7 @@ router.post('/:electronicId/edit', isAuth, async (req, res) => {
 });
 
 
-router.get('/:electronicId/delete', isAuth, async (req, res) => {
+router.get('/:electronicId/delete', isAuth, isOwner, async (req, res) => {
     const electronicId = req.params.electronicId;
 
     try {

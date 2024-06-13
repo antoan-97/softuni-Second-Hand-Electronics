@@ -40,10 +40,32 @@ exports.isLoggedIn = (req, res, next) => {
 
 
 exports.isOwner = async (req, res, next) => {
-    const electronicId = req.params.electronicId;
-    const electronic = await electronicManager.getOne(electronicId);
-    if (!electronic || electronic.owner.toString() !== req.user._id.toString()) {
-        return res.render('404');
+    try {
+        const electronicId = req.params.electronicId;
+        const electronic = await electronicManager.getOne(electronicId);
+
+        if (!electronic) {
+            console.log(`Electronic with ID ${electronicId} not found`);
+            return res.render('404');
+        }
+
+        if (!req.user) {
+            console.log('User is not authenticated');
+            return res.render('404');
+        }
+
+        console.log(`Electronic owner: ${String(electronic.owner._id)}`);
+        console.log(`Authenticated user: ${String(req.user._id)}`);
+
+        if (String(electronic.owner._id) === String(req.user._id)) {
+            console.log(`User ${req.user._id} is the owner of electronic ${electronicId}`);
+            return next();
+        } else {
+            console.log(`User ${req.user._id} is not the owner of electronic ${electronicId}`);
+            return res.render('404');
+        }
+    } catch (error) {
+        console.error(`Error in isOwner middleware: ${error.message}`);
+        return res.render('404', { error: 'An error occurred while checking ownership' });
     }
-    next();
 };
